@@ -1,0 +1,32 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+    methods: GET|HEAD    
+
+blog_list:
+    path: /blog
+    controller: App\Controller\BlogController::list
+
+api_post_edit:
+    path: /api/posts/{id}
+    controller: App\Controller\BlogApiController::edit
+    methods: PUT
+
+contact:
+    path: /contact
+    controller: App\Controller\DefaultController::contact
+    condition: "context.getMethod() in ['GET', 'HEAD'] and request.headers.get('User-Agent') matches '/firefox/i'"
+    # expressions can also include configuration parameters:
+    # condition: "request.headers.get('User-Agent') matches '%app.allowed_browsers%'"
+    # expressions can even use environment variables:
+    # condition: "context.getHost() == env('APP_MAIN_HOST')"
+
+post_show:
+    path: /posts/{id}    
+    controller: App\Controller\DefaultController::showPost
+    # expressions can etrieve route parameter values using the "params" variable
+    condition: "params['id'] < 1000"
