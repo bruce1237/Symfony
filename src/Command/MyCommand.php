@@ -21,7 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
     hidden: false,
     aliases: ['app:MyCommand']
 )]
-
+// this is nice
 class MyCommand extends Command
 {
     protected static $defaultDescription = 'My Command ';
