@@ -22,7 +22,6 @@ class CreateUserCommand extends Command
     // the command description shown when running "php bin/console list"
     protected static $defaultDescription = 'Create a new user. ';
 
-
     public function __construct(bool $requirePassword = false)
     {
         // best practices recommend to call the parent constructor first 
